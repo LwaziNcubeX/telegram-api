@@ -2,7 +2,7 @@
 FROM ubuntu:22.04
 
 # Set environment variables for non-interactive installation
-ADD DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Specify the variables you need at build time
@@ -32,8 +32,8 @@ RUN chmod +x /usr/local/bin/telegram-bot-api
 EXPOSE 8081
 
 # Use the build-time arguments to set environment variables
-ENV TELEGRAM_API_ID=${TELEGRAM_API_ID}
-ENV TELEGRAM_API_HASH=${TELEGRAM_API_HASH}
+ENV TELEGRAM_API_ID=$TELEGRAM_API_ID
+ENV TELEGRAM_API_HASH=$TELEGRAM_API_HASH
 
 # Command to run the Telegram Bot API server
-CMD ["telegram-bot-api", "--api-id=${TELEGRAM_API_ID}", "--api-hash=${TELEGRAM_API_HASH}", "--local"]
+CMD ["telegram-bot-api", "--api-id=$TELEGRAM_API_ID", "--api-hash=$TELEGRAM_API_HASH", "--local"]
