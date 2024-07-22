@@ -21,14 +21,11 @@ RUN apt-get update && \
         wget \
         && apt-get clean
 
-# Copy the existing build files into the container
-COPY telegram-bot-api /telegram-bot-api
+# Copy the pre-built binary into the container
+COPY telegram-bot-api/telegram-bot-api /usr/local/bin/telegram-bot-api
 
-# Set the working directory
-WORKDIR /telegram-bot-api/build
-
-# Install the existing build
-RUN make install
+# Make sure the binary is executable
+RUN chmod +x /usr/local/bin/telegram-bot-api
 
 # Expose the default HTTP port
 EXPOSE 8081
