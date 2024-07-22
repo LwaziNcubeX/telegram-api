@@ -22,7 +22,7 @@ RUN apt-get update && \
         && apt-get clean
 
 # Copy the pre-built binary into the container
-COPY telegram-bot-api/telegram-bot-api /usr/local/bin/telegram-bot-api
+COPY telegram-bot-api /usr/local/bin/telegram-bot-api
 
 # Make sure the binary is executable
 RUN chmod +x /usr/local/bin/telegram-bot-api
