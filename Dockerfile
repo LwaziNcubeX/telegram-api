@@ -22,10 +22,10 @@ RUN apt-get update && \
         && apt-get clean
 
 # Copy the existing build files into the container
-COPY ./telegram-api /telegram-api
+COPY telegram-bot-api /telegram-bot-api
 
 # Set the working directory
-WORKDIR /telegram-api/build
+WORKDIR /telegram-bot-api/build
 
 # Install the existing build
 RUN make install
