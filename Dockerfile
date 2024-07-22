@@ -2,6 +2,7 @@
 FROM ubuntu:22.04
 
 # Set environment variables for non-interactive installation
+ADD DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Specify the variables you need at build time
